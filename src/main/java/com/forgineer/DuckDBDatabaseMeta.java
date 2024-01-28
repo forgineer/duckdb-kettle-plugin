@@ -135,10 +135,9 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
             case ValueMetaInterface .TYPE_NUMBER:
             case ValueMetaInterface .TYPE_INTEGER:
             case ValueMetaInterface .TYPE_BIGNUMBER:
-                if (fieldname.equalsIgnoreCase(tk)
-                        || // Technical key
-                        fieldname.equalsIgnoreCase(pk) // Primary key
-                ) {
+                if (fieldname.equalsIgnoreCase(tk) ||   // Technical key
+                    fieldname.equalsIgnoreCase(pk)      // Primary key
+                    ) {
                     retval += "IDENTITY";
                 } else {
                     if (length > 0) {
@@ -212,7 +211,7 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
                             "INITIALLY", "INTERSECT", "INTO", "LATERAL_P", "LEADING", "LIMIT", "LOCALTIME", "LOCALTIMESTAMP", "NOT", "NULL_P", 
                             "OFFSET", "ON", "ONLY", "OR", "ORDER", "PLACING", "PRIMARY", "REFERENCES", "RETURNING", "SELECT", "SESSION_USER", 
                             "SOME", "SYMMETRIC", "TABLE", "THEN", "TO", "TRAILING", "TRUE_P", "UNION", "UNIQUE", "USER", "USING", "VARIADIC", 
-                            "WHEN", "WHERE", "WINDOW", "WITH" };
+                            "WHEN", "WHERE", "WINDOW", "WITH"};
     }
 
     //@Override
