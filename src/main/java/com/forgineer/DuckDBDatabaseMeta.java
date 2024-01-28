@@ -203,6 +203,7 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
     /**
      * Returns reserved words for DuckDB
      */
+    @Override
     public String[] getReservedWords() {
         return new String[] {"ALL", "ANALYSE", "ANALYZE", "AND", "ANY", "ARRAY", "AS", "ASC_P", "ASYMMETRIC", "BOTH", "CASE", "CAST",
                             "CHECK_P", "COLLATE", "COLUMN", "CONSTRAINT", "CREATE_P", "CURRENT_CATALOG", "CURRENT_DATE", "CURRENT_ROLE", 
@@ -213,6 +214,11 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
                             "SOME", "SYMMETRIC", "TABLE", "THEN", "TO", "TRAILING", "TRUE_P", "UNION", "UNIQUE", "USER", "USING", "VARIADIC", 
                             "WHEN", "WHERE", "WINDOW", "WITH" };
     }
+
+    //@Override
+    //public String getSQLListOfSchemas() {
+    //  return "SELECT TABLES";
+    //}
 
     public boolean isSupportsBooleanDataType() {
         return true;

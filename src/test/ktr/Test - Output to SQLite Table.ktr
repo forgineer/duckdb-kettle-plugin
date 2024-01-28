@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>Test - Input DuckDB Table</name>
+    <name>Test - Output to SQLite Table</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -436,10 +436,10 @@
   </info>
   <notepads>
     <notepad>
-      <note>Unit test for writing data to DuckDB</note>
+      <note>Unit test for writing data to SQLite</note>
       <xloc>32</xloc>
       <yloc>32</yloc>
-      <width>197</width>
+      <width>190</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -458,11 +458,11 @@
     </notepad>
   </notepads>
   <connection>
-    <name>DuckDB</name>
+    <name>SQLite</name>
     <server/>
-    <type>DuckDB</type>
+    <type>SQLITE</type>
     <access>Native</access>
-    <database>F:\mock_data.db</database>
+    <database>F:\mock_data.sqlite</database>
     <port>-1</port>
     <username/>
     <password>Encrypted </password>
@@ -481,10 +481,6 @@
       <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>-1</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -510,21 +506,41 @@
   </connection>
   <order>
     <hop>
-      <from>READ - Mock Data Set</from>
-      <to>META - Change Date Format</to>
+      <from>DEBUG</from>
+      <to>Write - SQLite</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>META - Change Date Format</from>
+      <from>READ - Mock Data Set</from>
       <to>DEBUG</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>DEBUG</from>
-      <to>Write - DuckDB</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
+  <step>
+    <name>DEBUG</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>READ - Mock Data Set</name>
     <type>CsvInput</type>
@@ -622,7 +638,7 @@
     </GUI>
   </step>
   <step>
-    <name>Write - DuckDB</name>
+    <name>Write - SQLite</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -632,14 +648,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DuckDB</connection>
+    <connection>SQLite</connection>
     <schema/>
-    <table>my_data</table>
+    <table>mock_data</table>
     <commit>100</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
+    <specify_fields>N</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
@@ -650,22 +666,6 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-      <field>
-        <column_name>number_value</column_name>
-        <stream_name>number_value</stream_name>
-      </field>
-      <field>
-        <column_name>string_value</column_name>
-        <stream_name>string_value</stream_name>
-      </field>
-      <field>
-        <column_name>float_value</column_name>
-        <stream_name>float_value</stream_name>
-      </field>
-      <field>
-        <column_name>date_iso8601</column_name>
-        <stream_name>date_iso8601</stream_name>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -676,77 +676,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>META - Change Date Format</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>date_value</name>
-        <rename>date_value</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DEBUG</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
+      <xloc>384</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
