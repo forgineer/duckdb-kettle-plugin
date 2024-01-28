@@ -5,8 +5,9 @@ A Kettle plugin for supporting DuckDB table input/output.
 
 ### Prerequisites
 The following should already be installed and configured on your local machine:
-* Java 8 or 11 (OpenJDK)
-* Maven (current)
+* Maven, version 3+
+* Java JDK 11
+* This [settings.xml](https://raw.githubusercontent.com/pentaho/maven-parent-poms/master/maven-support-files/settings.xml) in your <user-home>/.m2 directory
 
 ### Clone and Build the Plugin (jar file)
 Begin by cloning this repository locally.
