@@ -214,11 +214,6 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
                             "WHEN", "WHERE", "WINDOW", "WITH"};
     }
 
-    //@Override
-    //public String getSQLListOfSchemas() {
-    //  return "SELECT TABLES";
-    //}
-
     public boolean isSupportsBooleanDataType() {
         return true;
     }

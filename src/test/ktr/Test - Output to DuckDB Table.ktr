@@ -456,6 +456,71 @@
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
+    <notepad>
+      <note>Chaning the date type to a string will help to 
+write as a DATE data type for DuckDB as long 
+as the format is ISO compliant YYYY-MM-DD</note>
+      <xloc>176</xloc>
+      <yloc>208</yloc>
+      <width>249</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>-- mock_data.main.mock_data definition
+
+-- Drop table
+
+-- DROP TABLE mock_data.main.mock_data;
+
+CREATE TABLE mock_data.main.mock_data (
+	id BIGINT,
+	first_name VARCHAR,
+	last_name VARCHAR,
+	email VARCHAR,
+	gender VARCHAR,
+	latitude DECIMAL(11,7),
+	longitude DECIMAL(12,7),
+	character_value VARCHAR,
+	longtext_value VARCHAR,
+	number_value BIGINT,
+	float_value DECIMAL(9,5),
+	bool_value BOOLEAN,
+	date_value DATE,
+	date_iso_value VARCHAR
+);</note>
+      <xloc>704</xloc>
+      <yloc>128</yloc>
+      <width>244</width>
+      <heigth>359</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>DuckDB</name>
@@ -511,11 +576,11 @@
   <order>
     <hop>
       <from>READ - Mock Data Set</from>
-      <to>META - Change Date Format</to>
+      <to>META - Change Date to String</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>META - Change Date Format</from>
+      <from>META - Change Date to String</from>
       <to>DEBUG</to>
       <enabled>Y</enabled>
     </hop>
@@ -551,7 +616,7 @@
     </GUI>
   </step>
   <step>
-    <name>META - Change Date Format</name>
+    <name>META - Change Date to String</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -566,10 +631,10 @@
       <meta>
         <name>date_value</name>
         <rename>date_value</rename>
-        <type>Date</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -622,6 +687,105 @@
     <encoding/>
     <fields>
       <field>
+        <name>id</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>first_name</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>14</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>last_name</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>email</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>34</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>gender</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>11</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>latitude</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>11</length>
+        <precision>7</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>longitude</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>12</length>
+        <precision>7</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>character_value</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>longtext_value</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>34</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>number_value</name>
         <type>Integer</type>
         <format>#</format>
@@ -633,31 +797,20 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>string_value</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
         <name>float_value</name>
         <type>Number</type>
         <format>#.#</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>8</length>
+        <length>9</length>
         <precision>5</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>date_value</name>
-        <type>Date</type>
-        <format>MM/dd/yyyy</format>
+        <name>bool_value</name>
+        <type>Boolean</type>
+        <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
@@ -666,7 +819,18 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>date_iso8601</name>
+        <name>date_value</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>date_iso_value</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -721,20 +885,60 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>number_value</column_name>
-        <stream_name>number_value</stream_name>
+        <column_name>id</column_name>
+        <stream_name>id</stream_name>
       </field>
       <field>
-        <column_name>string_value</column_name>
-        <stream_name>string_value</stream_name>
+        <column_name>first_name</column_name>
+        <stream_name>first_name</stream_name>
+      </field>
+      <field>
+        <column_name>last_name</column_name>
+        <stream_name>last_name</stream_name>
+      </field>
+      <field>
+        <column_name>email</column_name>
+        <stream_name>email</stream_name>
+      </field>
+      <field>
+        <column_name>gender</column_name>
+        <stream_name>gender</stream_name>
+      </field>
+      <field>
+        <column_name>latitude</column_name>
+        <stream_name>latitude</stream_name>
+      </field>
+      <field>
+        <column_name>longitude</column_name>
+        <stream_name>longitude</stream_name>
+      </field>
+      <field>
+        <column_name>character_value</column_name>
+        <stream_name>character_value</stream_name>
+      </field>
+      <field>
+        <column_name>longtext_value</column_name>
+        <stream_name>longtext_value</stream_name>
+      </field>
+      <field>
+        <column_name>number_value</column_name>
+        <stream_name>number_value</stream_name>
       </field>
       <field>
         <column_name>float_value</column_name>
         <stream_name>float_value</stream_name>
       </field>
       <field>
-        <column_name>date_iso8601</column_name>
-        <stream_name>date_iso8601</stream_name>
+        <column_name>bool_value</column_name>
+        <stream_name>bool_value</stream_name>
+      </field>
+      <field>
+        <column_name>date_value</column_name>
+        <stream_name>date_value</stream_name>
+      </field>
+      <field>
+        <column_name>date_iso_value</column_name>
+        <stream_name>date_iso_value</stream_name>
       </field>
     </fields>
     <attributes/>
