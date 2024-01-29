@@ -1,21 +1,21 @@
 # duckdb-kettle-plugin
-A Kettle plugin for supporting DuckDB table input/output.
+A plugin for Pentaho Data Integration (Kettle) that adds support for [DuckDB](https://duckdb.org/) table input/output.
 
 ## Build and Install Instructions
 
 ### Prerequisites
 The following should already be installed and configured on your local machine:
 * Maven, version 3+
-* Java JDK 11
+* Java JDK 11 (or OpenJDK)
 * This [settings.xml](https://raw.githubusercontent.com/pentaho/maven-parent-poms/master/maven-support-files/settings.xml) in your <user-home>/.m2 directory
 
-### Clone and Build the Plugin (jar file)
+### Build the Plugin
 Begin by cloning this repository locally.
 ```
 git clone https://github.com/forgineer/duckdb-kettle-plugin.git
 ```
 
-After cloning, review the `pom.xml` file for the project `<version>` tag and ensure it is the same version as the Pentaho Data Integration (Kettle) version you are using.
+After cloning, review the `pom.xml` file for the project `<version>` tag and ensure it is the same version as the Pentaho Data Integration (Kettle) version you are using. This version can be verified under the [Maven repository](https://mvnrepository.com/artifact/pentaho-kettle/kettle-core).
 ```xml
 ...
 <groupId>com.forgineer</groupId>
@@ -26,7 +26,7 @@ After cloning, review the `pom.xml` file for the project `<version>` tag and ens
 ...
 ```
 
-Also, review the DuckDB version and update it to the desired version.
+Also, review the [DuckDB version](https://mvnrepository.com/artifact/org.duckdb/duckdb_jdbc) and update it to the desired version.
 ```xml
 ...
 <dependency>
@@ -38,11 +38,10 @@ Also, review the DuckDB version and update it to the desired version.
 ...
 ```
 
-Lastly, update the JDBC driver jar file name (version) to match the version in the `pom.xml` file. This file can be verified by downloading from Maven or directly from DuckDB.
+Lastly, update the JDBC driver jar file name and version to match the `pom.xml` file. This file can be verified by downloading from [Maven](https://mvnrepository.com/artifact/org.duckdb/duckdb_jdbc) or directly from DuckDB.
 ```java
 @Override
 public String[] getUsedLibraries() {
-    // Download the JDBC driver (jar) from Maven or DuckDB
     // The version should match POM
     return new String[] {"duckdb_jdbc-0.9.2.jar"};
 }
@@ -71,7 +70,7 @@ data-integration\
 Restart Kettle (Spoon).
 
 ### Configure DuckDB Connection
-DuckDB should now be an available connection type from a table input or output step. Only the database name is required to create the DuckDB file.
+DuckDB should now be available as a connection type from a table input or output step. Only the database name is required to create the DuckDB file.
 
 ![DuckDB Connection](./docs/duckdb-kettle-connection.png)
 

@@ -194,7 +194,6 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
 
     @Override
     public String[] getUsedLibraries() {
-        // Download the JDBC driver (jar) from Maven or DuckDB
         // The version should match POM
         return new String[] {"duckdb_jdbc-0.9.2.jar"};
     }
