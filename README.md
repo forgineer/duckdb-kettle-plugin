@@ -46,10 +46,10 @@ git clone https://github.com/forgineer/duckdb-kettle-plugin.git
   <properties>
     <!-- Pentaho Data Integration (Kettle) Version -->
     <!-- Ex: 9.3.0.0-428, 9.4.0.0-343, etc. -->
-    <kettle.version>10.0.0.0-221</kettle.version>
+    <kettle.version>9.4.0.0-343</kettle.version>
     <!-- DuckDB Version (JDBC driver) -->
     <!-- Ex: 0.10.2, 1.0.0, etc. -->
-    <duckdb.version>1.0.0</duckdb.version>
+    <duckdb.version>1.1.0</duckdb.version>
     ...
   </properties>
 ```
