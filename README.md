@@ -58,7 +58,7 @@ git clone https://github.com/forgineer/duckdb-kettle-plugin.git
 @Override
 public String[] getUsedLibraries() {
     // The version should match POM
-    return new String[] {"duckdb_jdbc-1.0.0.jar"};
+    return new String[] {"duckdb_jdbc-1.1.0.jar"};
 }
 ```
 4. Package the jar file:
