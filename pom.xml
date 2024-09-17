@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -17,7 +16,7 @@
     <kettle.version>9.4.0.0-343</kettle.version>
     <!-- DuckDB Version (JDBC driver) -->
     <!-- Ex: 0.10.2, 1.0.0, etc. -->
-    <duckdb.version>1.0.0</duckdb.version>
+    <duckdb.version>1.1.0</duckdb.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>

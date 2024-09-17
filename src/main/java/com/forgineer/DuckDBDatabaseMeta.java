@@ -195,7 +195,7 @@ public class DuckDBDatabaseMeta extends BaseDatabaseMeta implements DatabaseInte
     @Override
     public String[] getUsedLibraries() {
         // The version should match POM
-        return new String[] {"duckdb_jdbc-1.0.0.jar"};
+        return new String[] {"duckdb_jdbc-1.1.0.jar"};
     }
 
     /**

@@ -73,7 +73,3 @@ This will create a jar and zip file inside of the `target` directory:
 We welcome contributions to the duckdb-kettle-plugin project. Before submitting a pull request, please:
 * Raise an [issue](https://github.com/forgineer/duckdb-kettle-plugin/issues) to discuss the proposed changes.
 * Ensure that the issue is clear and concise, and that we've discussed and agreed on the changes.
-This will help us to:
-* Understand the purpose and scope of the changes
-* Ensure that the changes align with the project's goals and architecture
-* Provide guidance and support as needed
