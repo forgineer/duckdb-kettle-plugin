@@ -6,17 +6,21 @@
 
   <groupId>com.forgineer</groupId>
   <artifactId>duckdb-kettle-plugin</artifactId>
-  <!-- The version should reflect the PDI (Kettle version) -->
-  <!-- Ex: 9.4.0.0-343, 9.3.0.0-428, etc. -->
-  <version>9.4.0.0-343</version>
+  <version>1.0.0</version>
 
   <name>duckdb-kettle-plugin</name>
   <url>https://github.com/forgineer/duckdb-kettle-plugin</url>
 
   <properties>
+    <!-- Pentaho Data Integration (Kettle) Version -->
+    <!-- Ex: 9.3.0.0-428, 9.4.0.0-343, etc. -->
+    <kettle.version>9.4.0.0-343</kettle.version>
+    <!-- DuckDB Version (JDBC driver) -->
+    <!-- Ex: 0.10.2, 1.0.0, etc. -->
+    <duckdb.version>1.0.0</duckdb.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -29,21 +33,20 @@
     <dependency>
       <groupId>pentaho-kettle</groupId>
       <artifactId>kettle-core</artifactId>
-      <version>${project.version}</version>
+      <version>${kettle.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>pentaho-kettle</groupId>
       <artifactId>kettle-core</artifactId>
-      <version>${project.version}</version>
+      <version>${kettle.version}</version>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.duckdb</groupId>
       <artifactId>duckdb_jdbc</artifactId>
-      <!-- The version should reflect JDBC driver used and vice versa -->
-      <version>0.9.2</version>
+      <version>${duckdb.version}</version>
     </dependency>
   </dependencies>
 
